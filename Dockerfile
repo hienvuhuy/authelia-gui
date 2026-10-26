@@ -29,8 +29,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
 COPY --chown=appuser:appuser app/ ./app/
-COPY --chown=appuser:appuser templates/ ./templates/
-COPY --chown=appuser:appuser static/ ./static/
+COPY --chown=appuser:appuser templates/ ./app/templates/
+COPY --chown=appuser:appuser static/ ./app/static/
+# COPY --chown=appuser:appuser templates/ ./templates/
+# COPY --chown=appuser:appuser static/ ./static/
 
 # Create data directories with proper permissions
 RUN mkdir -p /data/backups && \
